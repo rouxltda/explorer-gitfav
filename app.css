@@ -155,7 +155,7 @@ form button:hover {
 }
 
 .table .tr .td:first-child {
-  flex: 2;
+  min-width: 330px;
 }
 
 .tbody .tr:nth-child(even) {
