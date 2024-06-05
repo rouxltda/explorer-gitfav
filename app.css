@@ -5,10 +5,20 @@
 }
 
 :root {
+  --font-primary: "Roboto", sans-serif;
+  --font-secondary: "Roboto Mono", sans-serif;
+
   --bg-color: #000000;
   --text-color: #e1e1e6;
   --primary-color: #065e7c;
+  --primary-color-light: #4a808c;
+  --primary-color-dark: #092d38;
   --dark-color: #06181c;
+  --dark-color-700: #030b0d;
+  --placeholder-color: #7c7c8a;
+  --danger-color: #f75a68;
+  --danger-color-light: #f5828b;
+  --gray-color: #4e5455;
 
   font-size: 62.5%;
 }
@@ -19,7 +29,7 @@ select,
 textarea,
 button,
 ::placeholder {
-  font-family: "Roboto", sans-serif;
+  font-family: var(--font-primary);
 }
 
 body {
@@ -77,7 +87,7 @@ form input {
 }
 
 ::placeholder {
-  color: #7c7c8a;
+  color: var(--placeholder-color);
 }
 
 form button {
@@ -105,19 +115,37 @@ form button:hover {
 }
 
 .table {
-  border: 1px solid #4a808c;
-  background: #030b0d;
+  border: 1px solid var(--primary-color-light);
+  background: var(--dark-color-700);
   border-radius: 1.2rem;
   overflow: hidden;
 }
 
 .thead {
-  background: #092d38;
+  background: var(--primary-color-dark);
   font-weight: bold;
 }
 
 .thead .td {
   padding: 1.6rem 4rem;
+}
+
+.tbody {
+  height: 60rem;
+  overflow-y: scroll;
+}
+
+.tbody::-webkit-scrollbar {
+  width: 0.6rem;
+}
+
+.tbody::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.tbody::-webkit-scrollbar-thumb {
+  border-radius: 1rem;
+  border: 0.6rem solid var(--primary-color-light);
 }
 
 .tbody .td {
@@ -126,14 +154,14 @@ form button:hover {
   align-items: center;
 }
 
-.tbody .tr .td:first-child {
+.table .tr .td:first-child {
   flex: 2;
 }
 
 .tbody .tr:nth-child(even) {
   background: #06181c;
-  border-top: 1px solid #4a808c;
-  border-bottom: 1px solid #4a808c;
+  border-top: 1px solid var(--primary-color-light);
+  border-bottom: 1px solid var(--primary-color-light);
 }
 
 .tr {
@@ -177,11 +205,32 @@ form button:hover {
 
 .remove {
   all: unset;
-  color: #f75a68;
+  color: var(--danger-color);
   cursor: pointer;
   transition: color 0.2s;
 }
 
 .remove:hover {
-  color: #f3838c;
+  color: var(--danger-color-light);
+}
+
+.empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.empty-text {
+  display: flex;
+  align-items: center;
+  gap: 6rem;
+}
+
+.empty h2 {
+  font-family: var(--font-secondary);
+  font-size: 4rem;
+  font-weight: bold;
+  line-height: 2.4rem;
+  color: var(--gray-color);
 }
